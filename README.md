@@ -25,8 +25,8 @@ A robust and scalable backend built with Node.js, Express, TypeScript, and Mongo
 
 1. Clone repository:
 ```bash
-git clone https://github.com/yourusername/template-backend.git
-cd template-backend
+git clone https://github.com/Zukab/Express-TypeScript-MongoDB-Template
+cd Template-backend
 ```
 
 2. Install dependencies:
