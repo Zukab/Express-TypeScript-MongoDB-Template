@@ -13,7 +13,7 @@ export const errorHandler = (
   err.status = err.status || 'error';
 
   if (CONFIG.NODE_ENV === 'development') {
-    logger.error('Error 💥', err);
+    logger.error('Error', err);
     res.status(err.statusCode).json({
       status: err.status,
       error: err,
@@ -21,7 +21,7 @@ export const errorHandler = (
       stack: err.stack
     });
   } else {
-    logger.error('Error 💥', err);
+    logger.error('Error', err);
     if (err.isOperational) {
       res.status(err.statusCode).json({
         status: err.status,
