@@ -6,6 +6,7 @@ import { connectDB } from './config/database';
 import logger from './config/logger';
 import { errorHandler } from './middleware/errorHandler';
 import AppError from './utils/appError';
+import authRoutes from './routes/auth.routes';
 
 const app = express();
 
@@ -16,6 +17,8 @@ app.use(express.urlencoded({ extended: true }));
 
 connectDB();
 
+// Rutas
+app.use('/api/v1/auth', authRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'API is running' });
@@ -25,9 +28,7 @@ app.all('*', (req, res, next) => {
   next(new AppError(`No se encontró ${req.originalUrl} en este servidor!`, 404));
 });
 
-
 app.use(errorHandler);
-
 
 app.listen(CONFIG.PORT, () => {
   logger.info(`Server is running on port ${CONFIG.PORT}`);
